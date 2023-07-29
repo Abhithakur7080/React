@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>Dynamic card App</title>
+    <style>
+      .card {
+        width: 250px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        margin: 50px auto;
+        background-color: rgb(236, 236, 236);
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 60%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Do not change the classNames of the elements from the default markup
+
+      var name, email, about;
+
+      const Card = () => (
+        <div className="card">
+          <h3>Name: {name}</h3>
+          <p>Email: {email}</p>
+          <p>About: {about}</p>
+        </div>
+      );
+
+      function changeName(e){
+          name = e.target.value;
+          rootElement.render(<App />);
+      }
+      function changeEmail(e){
+          email = e.target.value;
+          rootElement.render(<App />);
+      }
+      function changeAbout(e){
+          about = e.target.value;
+          rootElement.render(<App />);
+      }
+
+      const App = () => (
+        <>
+        <Card/>
+        <div className="App">
+          <div className="inputs">
+            <input placeholder="Name" onChange={changeName}/>
+            <input type="email" placeholder="Email" onChange={changeEmail}/>
+            <textarea placeholder="About" onChange={changeAbout}></textarea>
+          </div>
+        </div>
+        </>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>

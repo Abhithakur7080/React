@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>CMT App</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let customers = [];
+      const capacity = 25;
+      let seatsLeft = 25;
+
+      const GcountRef = React.createRef();
+      const GnameRef = React.createRef();
+      const GnumberRef = React.createRef();
+
+      
+      // Create form submit handler here
+      function timeformat(){
+        var date = new Date();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+        var meridian = (hour<12)?"AM":"PM";
+        return `${(hour<12)?hour:hour-12}:${minute}:${second} ${meridian}`;
+      }
+
+      const clearInputs = () => {
+        GcountRef.current.value = "";
+        GnameRef.current.value = "";
+        GnumberRef.current.value = "";
+      }
+      function servehandler(e){
+        const index = e.target.parentNode.parentNode.rowIndex-1;
+        if(!customers[index].served){
+          customers[index].served = true;
+          customers[index].Outdate = timeformat();
+          rootElement.render(<App />);
+        }
+      }
+
+      function removehandler(e){
+        const index = e.target.parentNode.parentNode.rowIndex-1;
+        if(customers[index].served){
+          customers.splice(index, 1);
+          seatsLeft++;
+          rootElement.render(<App />);
+        }
+      }
+
+      function handleSubmit(e){
+        e.preventDefault()
+        if(seatsLeft>0){
+          customers.push(
+            {
+              Gcount: GcountRef.current.value,
+              Gname: GnameRef.current.value,
+              Gnumber: GnumberRef.current.value,
+              Indate: timeformat(),
+              Outdate: "-",
+              served: false
+            }
+          );
+          seatsLeft--;
+          clearInputs();
+          rootElement.render(<App />);
+        }
+      }
+
+
+      const Form = () => (
+        <form onSubmit={handleSubmit}>
+            <div><input type="number" placeholder="Guest Count" ref={GcountRef}/></div>
+            <div><input type="text" placeholder="Primary Guest Name" ref={GnameRef}/></div>
+            <div><input type="tel" placeholder="Phone Number" ref={GnumberRef}/></div>
+            <div><button>Add Entry</button></div>
+        </form>
+      )
+
+      const App = () => (
+        <div className="App" style={{ textAlign: "center" }}>
+          <div>
+            <h2>Total Capacity: {capacity}</h2>
+            <h2>Seats Left: {seatsLeft}</h2>
+          </div>
+          <Form/>
+          
+          <table border="1px" style={{ margin: "auto" }}>
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Status</th>
+                <th>Remove Entry</th>
+              </tr>
+            </thead>
+            <tbody>
+              {customers.map((d, i) => (
+                <tr key={i}>
+                  <td>{d.Gcount}</td>
+                  <td>{d.Gname}</td>
+                  <td>{d.Gnumber}</td>
+                  <td>{d.Indate}</td>
+                  <td>{d.Outdate}</td>
+                  <td>{(d.served)?"searved":<button onClick={servehandler}>Click to check out</button>}</td>
+                <td><button onClick={removehandler}>Remove</button></td>
+              </tr>
+              ))}              
+            </tbody>
+          </table>
+        </div>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+
+  </body>
+</html>

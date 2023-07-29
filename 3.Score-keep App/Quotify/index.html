@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Quotify App</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const quotes = [];
+      const nameRef = React.createRef();
+      const quoteRef = React.createRef();
+
+      const clearInputs = () => {
+        nameRef.current.value = "";
+        quoteRef.current.value = "";
+      };
+
+      // create handleQuote function here
+      function handleQuote(e){
+        if (e.key === "Enter") {
+            e.preventDefault()
+            quotes.push(
+                {
+                    quote: quoteRef.current.value,
+                    name: nameRef.current.value
+                }
+            )
+            clearInputs(e);
+            rootElement.render(<App />);
+        }
+      }
+      const Form = () =>(
+        <div onKeyPress={handleQuote}>
+            <input placeholder="Name" ref={nameRef}/>
+            <input placeholder="Quote" ref={quoteRef}/>
+        </div>
+      )
+
+      const App = () => (
+        <div className="App">
+          <h2>Quotify</h2>
+          <Form/>
+          <div className="quotes">
+            {quotes.map((q, i) => (
+              <div key={i}>
+                <i>"{q.quote}"</i>
+                <b>~ {q.name}</b>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+
+      const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+      rootElement.render(<App />);
+    </script>
+  </body>
+</html>
