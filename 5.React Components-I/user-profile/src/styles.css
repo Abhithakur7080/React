@@ -1,0 +1,43 @@
+/* Write code for your CSS here */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.App{
+    width: 100%;
+    padding: 50px;
+}
+.homepage{
+    width: 100%;
+}
+.hero{
+    padding: 10px;
+}
+.hero .info{
+    padding: 10px 0;
+    text-align: left;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+.skill-Container{
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skill-Container .skills{
+    background-color: cyan;
+    padding: 10px;
+    border-radius: 5px;
+}
+.about{
+    margin-top: 20px;
+    padding: 10px;
+    word-wrap: break-word;
+    letter-spacing: 1.5px;
+    word-spacing: 4px;
+
+}
