@@ -5,7 +5,7 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #f1f1f1;
+    background: #f2f2f2;
   }
   .main {
     width: 70%;
@@ -21,6 +21,11 @@ body {
     border-radius: 10px;
     /* box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #f1f1f1; */
     display: flex;
+    transition: all 0.2s linear;
+  }
+  .movie-card:hover{
+    transform: scale(1.02);
+    box-shadow: 2px 2px 3px gray;
   }
   .movie-card:not(:first-child) {
     margin-top: 20px;
@@ -34,12 +39,17 @@ body {
   }
   .movie-card .left img {
     height: 250px;
+    border-radius: 10px;
     
   }
   .movie-card .right {
+    /* display: none; */
     position: relative;
     flex: 10;
   }
+  /* .movie-card:hover .right{
+    display: inline;
+  } */
   .movie-card .title {
     padding: 10px 20px;
     font-size: 25px;
@@ -96,8 +106,8 @@ body {
   
   
   .footer .str-btn {
-    width: 7px;
-    height: 7px
+    width: 14px;
+    height: 14px
   }
   .footer button {
     font-size: 15px;
@@ -106,24 +116,23 @@ body {
     border-radius: 3px;
     border: none;
     font-weight: 600;
-    
-   
+    cursor: pointer;
   }
   .favourite-btn {
     background-color: #bc16dd;
     color: #fff;
     margin: 5px;
+    cursor: pointer;
   }
   .favourite-btn .logo{
     color: #fff;
     font-weight: 600;
   }
   .cart-btn{
-    
         background-color: #251bb1;
         color: #fff;
         margin: 5px;
-      
+        cursor: pointer;
   }
   .unfavourite-btn {
     background-color: #db2828;
