@@ -16,7 +16,9 @@ class MovieCard extends Component{
             plot: "Super Natural powers showing in the movie.",
             price: 199,
             rating: 8.9,
-            star: 0
+            star: 0,
+            fav: false,
+            cart: false
         }
         // type-1 to bind add here
         // this.addstars = this.addstars.bind(this);
@@ -78,8 +80,19 @@ class MovieCard extends Component{
         //     star: this.state.star - 0.2,
         // });
     }
+
+    handleFav = () => {
+        this.setState({
+            fav: !this.state.fav
+        })
+    }
+    handleCart = () => {
+        this.setState({
+            cart: !this.state.cart
+        })
+    }
     render(){
-        const {title, plot, price, rating, star} = this.state;
+        const {title, plot, price, rating, star, fav, cart} = this.state;
        return (
        <div className="main">
         <div className="movie-card">
@@ -87,7 +100,8 @@ class MovieCard extends Component{
                 <img src="https://cdn.marvel.com/content/1x/theavengers_lob_crd_03.jpg" alt="poster"/>
             </div>
             <div className="right">
-                <div className="title">{this.state.title}</div>
+                {/* <div className="title">{this.state.title}</div> */}
+                <div className="title">{title}</div>
                 <div className="plot">{plot}</div>
                 <div className="price">Rs. {price}</div>
 
@@ -115,18 +129,47 @@ class MovieCard extends Component{
                             {/* this.addstars.bind(this) */}
                             <span className="starCount">{star}</span>
                     </div>
-                    <button className="favourite-btn">
+                    {fav?
+                    <button className="unfavourite-btn" onClick={this.handleFav}>
+                    <img 
+                        alt="buy"
+                        src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
+                        className="logo-btn"/>
+                        Unfavourite
+                    </button>
+                    :
+                    <button className="favourite-btn" onClick={this.handleFav}>
                         <img 
                         alt="buy"
-                        src="https://cdn-icons-png.flaticon.com/128/9284/9284424.png"
+                        src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
                         className="logo-btn"/>
-                        Buy now</button>
-                    <button className="cart-btn">
+                        Favourite
+                    </button>                    
+                    }
+                    {/* another way */}
+                    {/* <button className="favourite-btn" onClick={this.handleFav}>
+                    <img 
+                        alt="buy"
+                        src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
+                        className="logo-btn"/>
+                        {fav?"Favourite":"Unfavourite"}
+                    </button> */}
+                    { cart?
+                    <button className="uncart-btn" onClick={this.handleCart}>
+                    <img 
+                        alt="buy"
+                        src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
+                        className="logo-btn"/>
+                        Remove from Cart</button>
+                    :
+                    <button className="cart-btn" onClick={this.handleCart}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
                         className="logo-btn"/>
                         Add to Cart</button>
+                    }
+                    
                 </div>
             </div>
         </div>
