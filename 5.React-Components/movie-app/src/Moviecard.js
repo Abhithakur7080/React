@@ -9,95 +9,98 @@ import { Component } from "react";
 import './index.css'
 
 class MovieCard extends Component{
-    constructor(){
-        super();
-        this.state = {
-            title: "The Avengers",
-            plot: "Super Natural powers showing in the movie.",
-            price: 199,
-            rating: 8.9,
-            star: 0,
-            fav: false,
-            cart: false
-        }
-        // type-1 to bind add here
-        // this.addstars = this.addstars.bind(this);
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         title: "The Avengers",
+    //         plot: "Super Natural powers showing in the movie.",
+    //         price: 199,
+    //         rating: 8.9,
+    //         star: 0,
+    //         fav: false,
+    //         cart: false
+    //     }
+    //     // type-1 to bind add here
+    //     // this.addstars = this.addstars.bind(this);
+    // }
     // function
     // addstars() {
     //     console.log("this: ", this);
     // }
     // type-3 use fat arrow function
-    addstars = () =>{
-        //form-1
-        // this.setState({
-        //     star: this.state.star + 0.5,
-        // });
+    // addstars = () =>{
+    //     //form-1
+    //     // this.setState({
+    //     //     star: this.state.star + 0.5,
+    //     // });
 
-        if(this.state.star >=  5){
-            return;
-        }
+    //     if(this.state.star >=  5){
+    //         return;
+    //     }
 
-        //form-2
-        // taking all the call like-> increase 1.5(0.5 + 0.5 + 0.5) instead of 0.5
-        this.setState((prevState) => {
-            return {
-                star: prevState.star + 0.5
-            }
-        })
-        // this.setState((prevState) => {
-        //     return {
-        //         star: prevState.star + 0.5
-        //     }
-        // })
-        // this.setState((prevState) => {
-        //     return {
-        //         star: prevState.star + 0.5
-        //     }
-        // })
-        // this.state.star += 0.5;
-        // console.log("this.star: ", this.state.star);4
-    }
-    removestars = () => {
-        if(this.state.star <=0){
-            return;
-        }
-        // taking only last func this.setstate which is declare 0.2
-        // this.setState(
-        //     {
-        //     star: this.state.star - 0.5,
-        //     },
-        //     () => {
-        //         this.setState({
-        //             star: this.state.star - 0.2,
-        //     });
-        // }
-        // );
-        this.setState({
-            star: this.state.star - 0.5,
-        });
-        // this.setState({
-        //     star: this.state.star - 0.2,
-        // });
-    }
+    //     //form-2
+    //     // taking all the call like-> increase 1.5(0.5 + 0.5 + 0.5) instead of 0.5
+    //     this.setState((prevState) => {
+    //         return {
+    //             star: prevState.star + 0.5
+    //         }
+    //     })
+    //     // this.setState((prevState) => {
+    //     //     return {
+    //     //         star: prevState.star + 0.5
+    //     //     }
+    //     // })
+    //     // this.setState((prevState) => {
+    //     //     return {
+    //     //         star: prevState.star + 0.5
+    //     //     }
+    //     // })
+    //     // this.state.star += 0.5;
+    //     // console.log("this.star: ", this.state.star);4
+    // }
+    // removestars = () => {
+    //     if(this.state.star <=0){
+    //         return;
+    //     }
+    //     // taking only last func this.setstate which is declare 0.2
+    //     // this.setState(
+    //     //     {
+    //     //     star: this.state.star - 0.5,
+    //     //     },
+    //     //     () => {
+    //     //         this.setState({
+    //     //             star: this.state.star - 0.2,
+    //     //     });
+    //     // }
+    //     // );
+    //     this.setState({
+    //         star: this.state.star - 0.5,
+    //     });
+    //     // this.setState({
+    //     //     star: this.state.star - 0.2,
+    //     // });
+    // }
 
-    handleFav = () => {
-        this.setState({
-            fav: !this.state.fav
-        })
-    }
-    handleCart = () => {
-        this.setState({
-            cart: !this.state.cart
-        })
-    }
+    // handleFav = () => {
+    //     this.setState({
+    //         fav: !this.state.fav
+    //     })
+    // }
+    // handleCart = () => {
+    //     this.setState({
+    //         cart: !this.state.cart
+    //     })
+    // }
     render(){
-        const {title, plot, price, rating, star, fav, cart} = this.state;
+        const {title, plot, price, rating, star, fav, cart, poster} = this.props.movies;
+        const {movies, addstars, removestars, favourite} = this.props;
+        // const {movies: data} = this.props;
+        // const {title, plot, price, rating, star, fav, cart} = data;
        return (
        <div className="main">
         <div className="movie-card">
             <div className="left">
-                <img src="https://cdn.marvel.com/content/1x/theavengers_lob_crd_03.jpg" alt="poster"/>
+                <img src={poster} alt={title}/>
             </div>
             <div className="right">
                 {/* <div className="title">{this.state.title}</div> */}
@@ -116,7 +119,7 @@ class MovieCard extends Component{
                              <img 
                             alt="minus" 
                             src="https://cdn-icons-png.flaticon.com/128/10308/10308996.png"
-                            className="str-btn" onClick={this.removestars}/>
+                            className="str-btn" onClick={() => {removestars(movies)}}/>
                             <img 
                             alt="star" 
                             src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png"
@@ -124,13 +127,13 @@ class MovieCard extends Component{
                             <img 
                             alt="plus" 
                             src="https://cdn-icons-png.flaticon.com/128/4315/4315609.png"
-                            className="str-btn" onClick={this.addstars}/>
+                            className="str-btn" onClick={() => {addstars(movies)}}/>
                             {/* type-2 to bind this in event like this */}
                             {/* this.addstars.bind(this) */}
                             <span className="starCount">{star}</span>
                     </div>
                     {fav?
-                    <button className="unfavourite-btn" onClick={this.handleFav}>
+                    <button className="unfavourite-btn" onClick={favourite(movies)}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/210/210545.png"

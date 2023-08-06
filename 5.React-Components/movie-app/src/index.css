@@ -107,7 +107,8 @@ body {
   
   .footer .str-btn {
     width: 14px;
-    height: 14px
+    height: 14px;
+    cursor: pointer;
   }
   .footer button {
     font-size: 15px;
