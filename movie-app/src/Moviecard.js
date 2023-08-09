@@ -93,7 +93,7 @@ class MovieCard extends Component{
     // }
     render(){
         const {title, plot, price, rating, star, fav, cart, poster} = this.props.movies;
-        const {movies, addstars, removestars, favourite} = this.props;
+        const {movies, addstars, removestars, togglefavourite, toggleCart} = this.props;
         // const {movies: data} = this.props;
         // const {title, plot, price, rating, star, fav, cart} = data;
        return (
@@ -133,7 +133,7 @@ class MovieCard extends Component{
                             <span className="starCount">{star}</span>
                     </div>
                     {fav?
-                    <button className="unfavourite-btn" onClick={favourite(movies)}>
+                    <button className="unfavourite-btn" onClick={() => {togglefavourite(movies)}}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
@@ -141,7 +141,7 @@ class MovieCard extends Component{
                         Unfavourite
                     </button>
                     :
-                    <button className="favourite-btn" onClick={this.handleFav}>
+                    <button className="favourite-btn" onClick={() => {togglefavourite(movies)}}>
                         <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
@@ -150,7 +150,7 @@ class MovieCard extends Component{
                     </button>                    
                     }
                     {/* another way */}
-                    {/* <button className="favourite-btn" onClick={this.handleFav}>
+                    {/* <button className={fav?"favourite-btn":"unfavourite-btn"} onClick={() => {togglefavourite(movies)}}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/210/210545.png"
@@ -158,14 +158,14 @@ class MovieCard extends Component{
                         {fav?"Favourite":"Unfavourite"}
                     </button> */}
                     { cart?
-                    <button className="uncart-btn" onClick={this.handleCart}>
+                    <button className="uncart-btn" onClick={() => {toggleCart(movies)}}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
                         className="logo-btn"/>
                         Remove from Cart</button>
                     :
-                    <button className="cart-btn" onClick={this.handleCart}>
+                    <button className="cart-btn" onClick={() => {toggleCart(movies)}}>
                     <img 
                         alt="buy"
                         src="https://cdn-icons-png.flaticon.com/128/891/891462.png"
