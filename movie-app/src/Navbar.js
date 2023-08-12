@@ -1,4 +1,4 @@
-import { Component } from "react";
+// import { Component } from "react";
 import styled from "styled-components"
 
 //navigation style
@@ -59,8 +59,10 @@ top: -5px;
 font-size: 12px;
 visibility: ${(props) => props.show?"visible":"hidden"};
 `
-class Navbar extends Component{
-    render(){
+// class Navbar extends Component{
+    function Navbar(props){
+    // render(){
+        const {cartCount} = props;
         return(
             <>
             {/* type-1 inline style */}
@@ -118,12 +120,12 @@ class Navbar extends Component{
                     </Title>
                     <CartContainer>
                         <CartIcon src="https://cdn-icons-png.flaticon.com/128/891/891462.png" alt="cart-icon"/>
-                        <CartCount color="yellow" show={true}>3</CartCount>
+                        <CartCount color="yellow" show={true}>{cartCount}</CartCount>
                     </CartContainer>
                 </Nav>
             </>
         )
-    }
+    // }
 }
 
 export default Navbar;

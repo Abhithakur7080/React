@@ -4,11 +4,12 @@
 
 // }
 
-import { Component } from "react";
+// import { Component } from "react";
 
 import './index.css'
 
-class MovieCard extends Component{
+// class MovieCard extends Component{
+    function MovieCard(props){
     // constructor(){
     //     super();
     //     this.state = {
@@ -91,9 +92,9 @@ class MovieCard extends Component{
     //         cart: !this.state.cart
     //     })
     // }
-    render(){
-        const {title, plot, price, rating, star, fav, cart, poster} = this.props.movies;
-        const {movies, addstars, removestars, togglefavourite, toggleCart} = this.props;
+    // render(){
+        const {title, plot, price, rating, star, fav, cart, poster} = props.movies;
+        const {movies, addstars, removestars, togglefavourite, toggleCart} = props;
         // const {movies: data} = this.props;
         // const {title, plot, price, rating, star, fav, cart} = data;
        return (
@@ -178,7 +179,7 @@ class MovieCard extends Component{
         </div>
        </div>
        )
-    }
+    // }
 }
 
 export default MovieCard;
