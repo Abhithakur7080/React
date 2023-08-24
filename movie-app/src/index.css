@@ -13,6 +13,7 @@ body {
     margin-top: 30px;
     padding: 0 20px;
     box-sizing: border-box;
+    color: #c8c8c8;
   }
   .movie-card {
     background: #fff;

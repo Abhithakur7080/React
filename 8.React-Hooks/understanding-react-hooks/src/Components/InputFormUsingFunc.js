@@ -1,8 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Input(){
-    const [name, setName] = useState("Abhi");
-    const [lastName, setLastName] = useState("Thakur");
+    const [name, setName] = useState("Abhijeet");
+    const [lastName, setLastName] = useState("");
+
+    // ComponentDidMount and componentDidUpdate
+    useEffect(() => {
+        document.title = name + " " + lastName;
+    })
+
+    // ComponentDidmount only
+    // useEffect(() => {
+    //     document.title = name + " " + lastName;
+    // }, [])
+
+    // ComponentDidUpdate only 
+    // useEffect(() => {
+    //     document.title = name + " " + lastName;
+    // }, [lastName])
+
+    useEffect(() => {
+        let timer = setInterval(() => {
+            console.log("windows width: ", window.innerWidth);
+        }, 2000)
+        return(clearInterval(timer));
+    })
     return(
         <>
         <div className="section">

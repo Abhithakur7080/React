@@ -3,7 +3,7 @@ import Image from "./Image";
 
 export default class ImageList extends React.Component {
   // Lifecycle method to prevent re render of the list if some spaces are present
-  shouldComponentUpdate(nextProps, _) {
+  shouldComponentUpdate(nextProps) {
     const imagesLength = nextProps.images.length;
 
     if (nextProps.images.length > 0) {
