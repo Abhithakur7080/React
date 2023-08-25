@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./ExpenseForm.module.css";
 
-const ExpenseForm = ({ addExpense }) => {
+const ExpenseForm = ({dispatch}) => {
   const expenseTextInput = useRef();
   const expenseAmountInput = useRef();
 
@@ -18,7 +18,8 @@ const ExpenseForm = ({ addExpense }) => {
       amount: expenseAmount,
       id: new Date().getTime()
     };
-    addExpense(expense);
+    // Add expense here
+    dispatch({type: "ADD", payload: expense})
     clearInput();
     return;
   };
