@@ -1,9 +1,20 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./ExpenseForm.module.css";
 
-const ExpenseForm = ({dispatch}) => {
+const ExpenseForm = ({
+  addExpense,
+  expenseToUpdate,
+  updateExpense,
+  resetExpenseToUpdate
+}) => {
   const expenseTextInput = useRef();
   const expenseAmountInput = useRef();
+
+  useEffect(() => {
+    if (!expenseToUpdate) return;
+    expenseTextInput.current.value = expenseToUpdate.text;
+    expenseAmountInput.current.value = expenseToUpdate.amount;
+  }, [expenseToUpdate]);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -12,16 +23,27 @@ const ExpenseForm = ({dispatch}) => {
     if (parseInt(expenseAmount) === 0) {
       return;
     }
+    if (!expenseToUpdate) {
+      const expense = {
+        text: expenseText,
+        amount: expenseAmount,
+        id: new Date().getTime()
+      };
+      addExpense(expense);
+      clearInput();
+      return;
+    }
 
     const expense = {
       text: expenseText,
       amount: expenseAmount,
-      id: new Date().getTime()
+      id: expenseToUpdate.id
     };
-    // Add expense here
-    dispatch({type: "ADD", payload: expense})
+
+    const result = updateExpense(expense);
+    if (!result) return;
     clearInput();
-    return;
+    resetExpenseToUpdate();
   };
 
   const clearInput = () => {
@@ -31,7 +53,7 @@ const ExpenseForm = ({dispatch}) => {
 
   return (
     <form className={styles.form} onSubmit={onSubmitHandler}>
-      <h3>Add new transaction</h3>
+      <h3>{expenseToUpdate ? "Edit " : "Add new "}transaction</h3>
       <label htmlFor="expenseText">Text</label>
       <input
         id="expenseText"
@@ -53,7 +75,9 @@ const ExpenseForm = ({dispatch}) => {
         ref={expenseAmountInput}
         required
       />
-      <button className={styles.submitBtn}>Add Transaction</button>
+      <button className={styles.submitBtn}>
+        {expenseToUpdate ? "Edit " : "Add "} Transaction
+      </button>
     </form>
   );
 };
