@@ -1,8 +1,10 @@
 //no need of navbar when use router
-// import Navbar from './Components/Navbar';
+import Navbar from './Components/Navbar';
 import About from './Pages/about';
 import Home from './Pages/home';
 import Items from './Pages/items';
+import ItemDetails from './Pages/itemdetails';
+import ErrorPage from './Pages/errorPage';
 // import { useState } from 'react'; // no use
 import {
   createBrowserRouter,
@@ -14,9 +16,27 @@ const App = () => {
 
   // way-1
   const router = createBrowserRouter([
-    {path: "/", element: <Home/>},
-    {path: "/about", element: <About/>},
-    {path: "/items", element: <Items/>}
+    {
+    path: '/',
+    element: <Navbar/>,
+    errorElement: <ErrorPage/>,
+    children: [
+      {index: true, element: <Home/>},
+      {path: "/about", element: <About/>},
+      {
+      path: "/items",
+      children: [
+        {
+          index: true,
+          element: <Items/>
+        },
+        {
+          path: ':id',
+          element: <ItemDetails/>
+        }
+      ]}
+    ]
+  }   
   ])
 
   // way-2
