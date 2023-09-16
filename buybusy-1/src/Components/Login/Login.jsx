@@ -31,13 +31,13 @@ const Login = () => {
 
     // login settings function
     const login = async () => {
-        if(username.trim()=="" || password.trim()==""){
-            toast.error("please Enter username and password");
+        if(username.trim()==="" || password.trim()===""){
+            toast.error("Please Enter Username and Password");
         }
         else{
             const result = await authenticateUser(username, password);
             if (!result) {
-                toast.error("Invalid username/password");
+                toast.error("Invalid Username/Password");
             }
             else{     
                 toast.success("Login Successfully");

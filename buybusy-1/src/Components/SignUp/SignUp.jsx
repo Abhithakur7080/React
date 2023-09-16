@@ -14,30 +14,30 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-    const {newUser} = useUserContext();
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [password,setPassword] = useState("");
+    const { newUser } = useUserContext();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
     //target user name
-    const handleUsernameChange = (e)=>{
+    const handleUsernameChange = (e) => {
         setName(e.target.value);
     }
     //target user password
-    const handlePasswordChange = (e)=>{
+    const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
     //target user email
-    const handleEmailChange= (e)=>{
+    const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
     // signup settings function
     const signup = () => {
-        if(name.trim()=="" ||email.trim()=="" || password.trim()==""){
-            toast.error("please Enter username and password");
+        if (name.trim() === "" || email.trim() === "" || password.trim() === "") {
+            toast.error("Please Enter Name, Username and Password");
         }
-        else{
+        else {
             newUser(name, email, password);
             navigate("/")
         }

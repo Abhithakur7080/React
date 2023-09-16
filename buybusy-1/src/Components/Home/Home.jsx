@@ -21,7 +21,6 @@ const Home = () => {
     //FILTER
     //filter search
     const [priceFilter, setPriceFilter] = useState(1000);
-    const [category, setCategory] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,7 +33,6 @@ const Home = () => {
 
     //category filter
     const handleCategoryFilter = (e) => {
-        setCategory(e.target.value);
         const category = e.target.value;
         if (selectedCategories.includes(category)) {
             // Deselect category if it's already selected

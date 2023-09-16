@@ -1,6 +1,5 @@
 //PAGES
 import Navbar from "./Components/Navbar/Navbar";
-import Loader from "./Components/Loader/Loader";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/SignUp/SignUp";
 import Home from "./Components/Home/Home";
@@ -11,8 +10,7 @@ import styles from "./App.module.css";
 //ROUTERS
 import {
   createBrowserRouter,
-  RouterProvider,
-  Navigate
+  RouterProvider
 } from 'react-router-dom'
 
 //CUSTOM CONTEXT
@@ -20,24 +18,28 @@ import { UserContextProvider } from "./userContext";
 import Cart from "./Components/Cart/cart";
 import Order from "./Components/order/order";
 
+import { Helmet } from 'react-helmet';
+
 function App() {
+
+
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <UserContextProvider>
-          <Navbar/>
-          <Home/>
+          <Navbar />
+          <Home />
         </UserContextProvider>
       )
     },
     {
       path: "/login",
-      element:(
+      element: (
         <UserContextProvider>
-          <Navbar/>
-          <Login/>
+          <Navbar />
+          <Login />
         </UserContextProvider>
       )
     },
@@ -45,8 +47,8 @@ function App() {
       path: "/signup",
       element: (
         <UserContextProvider>
-          <Navbar/>
-          <SignUp/>
+          <Navbar />
+          <SignUp />
         </UserContextProvider>
       )
     },
@@ -54,8 +56,8 @@ function App() {
       path: "/cart",
       element: (
         <UserContextProvider>
-          <Navbar/>
-          <Cart/>
+          <Navbar />
+          <Cart />
         </UserContextProvider>
       )
     },
@@ -63,16 +65,22 @@ function App() {
       path: "/orders",
       element: (
         <UserContextProvider>
-          <Navbar/>
-          <Order/>
+          <Navbar />
+          <Order />
         </UserContextProvider>
       )
     }
-    
+
   ])
   return (
     <div className={styles.main}>
-    <RouterProvider router={router}/>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Busy Buy</title>
+        <meta name="description" content="Busy buy is an e-commerce website where we purchase any items." />
+      </Helmet>
+      <RouterProvider router={router} />
+
     </div>
   );
 }
