@@ -23,10 +23,10 @@ const Navbar = () => {
     return (
     <>
         <nav className={styles.nav}>
-            <div className={styles.logo}>
+            <NavLink to="/" className={styles.logo}>
                 <img src={logoImg} alt="logo" />
                 <h4> Busy Buy</h4>
-            </div>
+            </NavLink>
             <div className={styles.buttons}>
                 {authenticate ? (
                     <>
