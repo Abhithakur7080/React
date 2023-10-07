@@ -1,0 +1,150 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5%;
+    padding: 1.5rem;
+}
+
+.filterContainer {
+    position: fixed;
+    left: 1%;
+    background-color: #c8c8ff80;
+    top: 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.filterContainer form {
+    padding: 0.5rem;
+}
+
+.filterContainer h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4a15ad;
+    text-align: center;
+}
+
+.pricel {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.pricei {
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.catagoryContainer {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.catagory {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.searchContainer {
+    margin: auto;
+    margin-top: 6vh;
+    width: 40%;
+}
+
+.searchContainer input {
+    background-color: #c8c8ff80;
+    border: 3px solid #4a15ad;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 2.5rem;
+    color: #4a15ad;
+    font-weight: 500;
+    line-height: 1.5rem;
+    outline: none;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+}
+
+.productContainerGrid {
+    display: grid;
+    grid-gap: 2rem;
+    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 3rem;
+    margin-left: 15rem;
+    padding: 2rem;
+}
+
+.productContainer {
+    align-items: center;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 0 2px 8px 0 #62629f80;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.productImageContainer {
+    flex: 1 1;
+}
+
+.productImageContainer img {
+    width: 100%;
+    height: 80%;
+}
+.productDetailContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: flex-start;
+}
+.name{
+    color: #303088;
+    font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: #303088;
+}
+.btn{
+    width: 100%;
+    background-color: #4a15ad;
+    color: #fff;
+    padding: 0.9rem 0;
+    font-size: 1.5rem;
+    border-radius: 0.6rem;
+    border: 3px solid #4a15ad;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #4a15ad;
+}
+.btn:active{
+    scale: 0.9;
+}

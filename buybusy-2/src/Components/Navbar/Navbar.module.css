@@ -1,0 +1,75 @@
+.nav {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a15ad;
+    padding: 1.5% 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.logo {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.logo h4 {
+    margin-left: 5%;
+    font-size: 200%;
+    font-weight: 700;
+    color: #fff;
+}
+
+.buttons {
+    width: 50%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 3px solid #4a15ad;
+    padding: 0.5% 1%;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 3px solid #fff;
+}
+
+.btn:active {
+    scale: 0.9;
+}
+
+.img {
+    width: 35px;
+    height: 35px;
+}
+
+.text {
+    font-size: 100%;
+    font-weight: 500;
+    color: #fff;
+}

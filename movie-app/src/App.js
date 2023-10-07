@@ -6,7 +6,7 @@ class App extends React.Component{
   constructor(){
     super();
     this.state = {
-        movies: movies,
+        movies: movies, 
         cartCount: 0
     }
 }
