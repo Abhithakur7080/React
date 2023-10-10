@@ -9,11 +9,12 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser);
 
   const ProtectedRoute = ({ children }) => {
     if(!currentUser){
-      <Navigate to="/login"/>
+      return (
+      <Navigate to="/login" replace={true}/>
+      )
     }
     return children;
   }
@@ -26,7 +27,7 @@ function App() {
           </ProtectedRoute>
         }/>
         <Route path="login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
+        <Route path="register" element={<Register/>}/>
       </Routes>
     </Router>
   );

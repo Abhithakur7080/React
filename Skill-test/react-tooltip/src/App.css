@@ -1,0 +1,143 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.grp-name{
+  width: 40vw;
+  padding: 50px;
+  font-size: 35px;
+  font-weight: 700;
+  color: crimson;
+  text-align: center;
+}
+.btn-group{
+  width: 40vw;
+  padding: 50px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn{
+  width: fit-content;
+  padding: 1.25rem;
+  background-color: #fff;
+  border: 5px solid crimson;
+  border-radius: 10px;
+  color: crimson;
+  font-size: 25px;
+  font-weight: 600;
+}
+.active{
+  background-color: crimson;
+  color: wheat;
+}
+.hover-group{
+  width: 40vw;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.pos-box{
+  width: 40%;
+  padding: 2.5rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.top{
+  position: absolute;
+  top: 0px;
+  left: auto;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.top::before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid black;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+  left: 60px;
+  bottom: -19px;
+}
+.left{
+  position: absolute;
+  left: 0;
+  top: auto;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.left::before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid black;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+  right: -18px;
+  top: 6px;
+}
+.right{
+  position: absolute;
+  right: 0;
+  top: auto;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.right::before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid black;
+  border-top: 10px solid black;
+  border-bottom: 10px solid transparent;
+  left: -18px;
+  top: 10px;
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
+  left: auto;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.bottom::before{
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid black;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid black;
+  left: 60px;
+  top: -18px;
+}

@@ -1,4 +1,4 @@
-export const Friends = () => {
+export const Input = () => {
     return (
         <>
         </>

@@ -1,4 +1,4 @@
-import { Friends } from "../Friends/friends"
+import { Chats } from "../Chats/chats"
 import { Navbar } from "../Navbar/navbar"
 import { Search } from "../Search/search"
 
@@ -7,7 +7,7 @@ export const Sidebar = () => {
         <div className="sidebar">
             <Navbar/>
             <Search/>
-            <Friends/>
+            <Chats/>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../../icon.png";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../../firebaseinit";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -9,12 +9,12 @@ import { toast } from "react-toastify";
 
 export const Register = () => {
     const [error, setError] = useState(false);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     //handle on submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const name = e.target[0].value;
+        const displayName = e.target[0].value;
         const email = e.target[1].value;
         const password = e.target[2].value;
 
@@ -32,7 +32,7 @@ export const Register = () => {
             );
 
             //on firestore storage handle to add chats and medias
-            const storageRef = ref(storage, name);
+            const storageRef = ref(storage, displayName);
 
             const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -46,19 +46,19 @@ export const Register = () => {
                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
                         //1st update
                         await updateProfile(response.user, {
-                            name,
+                            displayName,
                             photoURL: downloadURL
                         });
                         //2nd set to db
                         await setDoc(doc(db, "users", response.user.uid), {
-                            name,
+                            displayName,
                             email,
                             photoURL: downloadURL
                         });
                         //3rd also create same id to usercart collection
                         await setDoc(doc(db, "userFriends", response.user.uid), {});
                         toast.success("New User Created");
-                        // navigate('/');
+                        navigate('/');
                     })
                 }
             )
@@ -88,6 +88,7 @@ export const Register = () => {
                         <input type="file" id="file-input" />
                     </div>
                     <button type="submit">Register</button>
+                    <h4>Already user? <NavLink to="/login">Login</NavLink> here.</h4>
                 </form>
             </div>
         </div>

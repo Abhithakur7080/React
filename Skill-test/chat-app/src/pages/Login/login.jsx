@@ -3,7 +3,7 @@ import logo from "../../icon.png";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseinit";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const [error, setError] = useState(false);
@@ -16,7 +16,7 @@ export const Login = () => {
 
         try{
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/')
+            navigate('/');
             toast.success("Logged In Successfully")
         }
         catch(error){
@@ -37,6 +37,7 @@ export const Login = () => {
                     <input type="email" placeholder="Enter your Email here..."/>
                     <input type="password" placeholder="Enter your Password here..."/>
                     <button type="submit">Sign In</button>
+                    <h4>New user? <NavLink to="/register">Register</NavLink> here.</h4>
                 </form>
             </div>
         </div>
