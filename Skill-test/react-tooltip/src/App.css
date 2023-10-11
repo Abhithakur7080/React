@@ -10,7 +10,7 @@
   padding: 50px;
   font-size: 35px;
   font-weight: 700;
-  color: crimson;
+  color: #038B8E;
   text-align: center;
 }
 .btn-group{
@@ -24,16 +24,16 @@
 .btn{
   width: fit-content;
   padding: 1.25rem;
-  background-color: #fff;
-  border: 5px solid crimson;
+  background-color: transparent;
+  border: 5px solid #111;
   border-radius: 10px;
-  color: crimson;
+  color: #111;
   font-size: 25px;
   font-weight: 600;
 }
 .active{
-  background-color: crimson;
-  color: wheat;
+  background-color: #111;
+  color: #fff;
 }
 .hover-group{
   width: 40vw;
@@ -68,12 +68,12 @@
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 10px solid black;
+  border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid black;
-  border-bottom: 10px solid transparent;
-  left: 60px;
-  bottom: -19px;
+  border-top: 20px solid black;
+  border-bottom: 20px solid transparent;
+  left: 48%;
+  bottom: -38px;
 }
 .left{
   position: absolute;
@@ -90,12 +90,12 @@
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 10px solid black;
-  border-right: 10px solid transparent;
-  border-top: 10px solid black;
+  border-left: 30px solid black;
+  border-right: 30px solid transparent;
+  border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  right: -18px;
-  top: 6px;
+  right: -58px;
+  top: 28%;
 }
 .right{
   position: absolute;
@@ -112,12 +112,12 @@
   width: 0px;
   height: 0px;
   position: absolute;
-  border-left: 10px solid transparent;
-  border-right: 10px solid black;
-  border-top: 10px solid black;
+  border-left: 30px solid transparent;
+  border-right: 30px solid black;
+  border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  left: -18px;
-  top: 10px;
+  left: -58px;
+  top: 28%;
 }
 .bottom{
   position: absolute;
@@ -135,9 +135,9 @@
   height: 0px;
   position: absolute;
   border-left: 10px solid transparent;
-  border-right: 10px solid black;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid black;
-  left: 60px;
-  top: -18px;
+  border-right: 10px solid transparent;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid black;
+  left: 48%;
+  top: -38px;
 }
