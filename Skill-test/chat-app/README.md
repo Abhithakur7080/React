@@ -1,5 +1,5 @@
 # Introduction of project
-This is the 2nd React Skill test project assigned by Coding Ninjas.
+This is the 3rd React Skill test project assigned by Coding Ninjas.
 Project Name: Chat app
 
 ## Available Scripts
