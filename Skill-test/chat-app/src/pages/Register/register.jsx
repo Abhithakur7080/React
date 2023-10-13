@@ -1,14 +1,34 @@
+//GETTING REACT COMPONENTS
 import { useState } from "react";
-import logo from "../../icon.png";
+
+//GETTING ROUTING COMPONENTS
 import { useNavigate, NavLink } from 'react-router-dom'
+
+//GETTING FIREBASE AUTH COMPONENTS
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+
+//GETTING COMPONENTS FROM FIREBASE FILE
 import { auth, db, storage } from "../../firebaseinit";
+
+//GETTING FIREBASE STORAGE FILE
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+
+//GETTING FIRESTORE COMPONENTS
 import { doc, setDoc } from "firebase/firestore";
+
+//GETTING TOAST
 import { toast } from "react-toastify";
 
+//GETTING IMAGES
+import profile from "../../images/profile.png";
+import logo from "../../images/icon.png";
+
 export const Register = () => {
+
+    //making of state
     const [error, setError] = useState(false);
+
+    //initialize navigate components
     const navigate = useNavigate();
 
     //handle on submit form
@@ -19,10 +39,10 @@ export const Register = () => {
         const password = e.target[2].value;
 
         const file = e.target[3].files[0];
+        console.log(auth);
+        console.log(email);
+        console.log(password);
 
-        // console.log(name);
-        // console.log(email);
-        // console.log(password);
 
         try {
             const response = await createUserWithEmailAndPassword(
@@ -30,7 +50,7 @@ export const Register = () => {
                 email,
                 password
             );
-
+            console.log("hello");
             //on firestore storage handle to add chats and medias
             const storageRef = ref(storage, displayName);
 
@@ -39,7 +59,6 @@ export const Register = () => {
             uploadTask.on(
                 //handle successful upload
                 (error) => {
-                    setError(true);
                 },
                 // storing data to storage
                 () => {
@@ -50,13 +69,15 @@ export const Register = () => {
                             photoURL: downloadURL
                         });
                         //2nd set to db
+                        console.log(response);
                         await setDoc(doc(db, "users", response.user.uid), {
+                            uid: response.user.uid,
                             displayName,
                             email,
                             photoURL: downloadURL
                         });
                         //3rd also create same id to usercart collection
-                        await setDoc(doc(db, "userFriends", response.user.uid), {});
+                        await setDoc(doc(db, "userChats", response.user.uid), {});
                         toast.success("New User Created");
                         navigate('/');
                     })
@@ -83,13 +104,15 @@ export const Register = () => {
                     <input type="email" placeholder="Enter your Email here..." />
                     <input type="password" placeholder="Enter your Password here..." />
                     {/* dummy tag to store medias files and chats */}
-                    <div className="photo">
-                        <h4>Select Profile photo</h4>
-                        <input type="file" id="file-input" />
-                    </div>
+                    <input type="file" style={{display: "none"}} id="fileInput" />
+                    <label htmlFor="fileInput">
+                        <span>Select Profile photo </span>
+                        <img src={profile} alt="profilePhoto"/>
+                    </label>
                     <button type="submit">Register</button>
                     <h4>Already user? <NavLink to="/login">Login</NavLink> here.</h4>
                 </form>
+                {error && <span>Something went Wrong!!!</span>}
             </div>
         </div>
     )

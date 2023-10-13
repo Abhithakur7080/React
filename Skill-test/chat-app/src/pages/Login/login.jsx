@@ -1,14 +1,30 @@
+//GETTING REACT COMPONENTS
 import { useState } from "react";
-import logo from "../../icon.png";
+
+//GETTING FIREBASE AUTH COMPONENTS
 import { signInWithEmailAndPassword } from "firebase/auth";
+
+//GETTING COMPONENTS FROM FIREBASE FILE
 import { auth } from "../../firebaseinit";
+
+//GETTING TOAST
 import { toast } from "react-toastify";
+
+//GETTING ROUTING COMPONENTS
 import { NavLink, useNavigate } from "react-router-dom";
 
+//GETTING IMAGE
+import logo from "../../images/icon.png";
+
 export const Login = () => {
+
+    //making of state
     const [error, setError] = useState(false);
+
+    //initialize navigate components
     const navigate = useNavigate();
 
+    //on submit function
     const handleSubmit = async (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -39,6 +55,7 @@ export const Login = () => {
                     <button type="submit">Sign In</button>
                     <h4>New user? <NavLink to="/register">Register</NavLink> here.</h4>
                 </form>
+                {error && <span>Something went Wrong!!!</span>}
             </div>
         </div>
     )

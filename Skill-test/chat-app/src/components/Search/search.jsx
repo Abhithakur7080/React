@@ -1,24 +1,30 @@
+//GETTING REACT COMPONENTS
 import { useContext, useState } from "react"
+//GETTING COMPONENTS FROM AUTHCONTEXT
 import { AuthContext } from "../../context/authContext";
-import { collection, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
+//GETTING COMPONENTS FROM FIRESTORE
+import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore";
+//GETTING COPONENTS FROM FIREBASE FILE
 import { db } from "../../firebaseinit";
 
 export const Search = () => {
+    //making of state
     const [username, setUsername] = useState("");
     const [user, setUser] = useState(null);
     const [err, setError] = useState(false);
 
+    // using current info frm auth context
     const { currentUser } = useContext(AuthContext);
+
+    //search function
     const handleSearch = async () => {
         const q = query(
             collection(db, "users"),
             where("displayName", "==", username)
         );
-        console.log(q);
         try{
             const querySnapshot = getDocs(q);
             (await querySnapshot).forEach((doc) =>{
-                console.log(doc);
                 setUser(doc.data());
             });
         }
@@ -27,36 +33,38 @@ export const Search = () => {
         }
     }
 
+    // on entering key input functions
     const handleKey = (e) => {
         e.code === "Enter" && handleSearch();
     }
 
+    //on selecting user function
     const handleSelect = async () => {
         const combinedId = currentUser.uid > user.uid
                             ? currentUser.uid + user.uid
                             : user.uid + currentUser.uid;
 
         try{
-            const response = await getDocs(doc(db, "chats", combinedId));
+            const response = await getDoc(doc(db, "chats", combinedId));
             if(!response.exists()){
-                await setDoc(doc(db, "chats", combinedId), { message: []});
+                await setDoc(doc(db, "chats", combinedId), { messages: []});
 
                 await updateDoc(doc(db, "userChats", currentUser.uid), {
-                    [combinedId + "userInfo"]: {
+                    [combinedId + ".userInfo"]: {
                         uid: user.uid,
                         displayName: user.displayName,
                         photoURL: user.photoURL
                     },
-                    [combinedId + "date"]: serverTimestamp(),
+                    [combinedId + ".date"]: serverTimestamp(),
                 })
 
                 await updateDoc(doc(db, "userChats", user.uid), {
-                    [combinedId + "userInfo"]: {
+                    [combinedId + ".userInfo"]: {
                         uid: currentUser.uid,
                         displayName: currentUser.displayName,
                         photoURL: currentUser.photoURL
                     },
-                    [combinedId + "date"]: serverTimestamp(),
+                    [combinedId + ".date"]: serverTimestamp(),
                 })
             }
         }
@@ -88,6 +96,7 @@ export const Search = () => {
                 <i className="fa-solid fa-message"></i>
             </div>
             )}
+            {err && <span>Something went Wrong!!!</span>}
         </>
     )
 }
