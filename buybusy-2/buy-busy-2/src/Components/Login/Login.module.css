@@ -1,0 +1,80 @@
+.container{
+    width: 40%;
+    background-color: #4a15ad;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 0.45%;
+    padding-top: 2%;
+    margin: auto;
+}
+.container h2{
+    color: #fff;
+    font-weight: 800;
+    font-size: 30px;
+    text-align: center;
+}
+.form{
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px 0px;
+}
+.inputContainer{
+    width: 90%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+.inputContainer label{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4a15ad;
+}
+.inputContainer input{
+    width: 90%;
+    padding: 3%;
+    border: 2px solid #4a15ad;
+    border-radius: 30px;
+    outline: none;
+}
+.button{
+    width: 20%;
+    padding: 3%;
+    background-color: #4a15ad;
+    text-align: center;
+    border-radius: 30px;
+    border: 3px solid #4a15ad;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1%;
+    text-decoration: none;
+    transition: all 0.3s linear;
+}
+.button:hover{
+    background-color: #fff;
+    color: #4a15ad;
+}
+.button:active{
+    scale: 0.9;
+}
+.text{
+    text-align: center;
+    width: 250px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #4a15ad;
+}
+.link{
+    text-decoration: underline;
+    display: inline;
+    cursor: pointer;
+}
+.link:hover{
+    color: #666;
+}

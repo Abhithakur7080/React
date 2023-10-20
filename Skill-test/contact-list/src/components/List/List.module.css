@@ -1,0 +1,100 @@
+/* main container start here */
+.main{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 15%;
+    left: 0%;
+}
+/* list of all albums container start here */
+.List{
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+}
+/* one album container start here */
+.listCont{
+    width: 25rem;
+    height: 25rem;
+    border-radius: 15px;
+    background-image: url(user.png);
+    background-position: center;
+    background-size: contain;
+    color: #2c2c54;
+    padding: 0.6rem;
+    transition: all 0.4s linear;
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: 2rem;
+}
+/* album on hover style */
+.listCont:hover{
+    box-shadow: 8px 8px 8px gray;
+    transform: scale(1.01);
+}
+/* title */
+
+.info{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    line-height: 5px;
+}
+.name{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+/* button container */
+.btnCont{
+    position: absolute;
+    width: 100%;
+    bottom: -2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+/* button */
+.btnCont button{
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    outline: none;
+    transition: all 1s linear;
+}
+/* button on active */
+.btnCont button:active{
+    transform: scale(0.9);
+}
+/* update button */
+.update{
+    background-color: #0000ff;
+    border: 4px solid #0000ff;
+}
+/* update on hover */
+.update:hover{
+    background-color: #fff;
+    color: #0000ff;
+}
+/* delete button */
+.delete{
+    background-color: #ff0000;
+    border: 4px solid #ff0000;
+}
+/* delete on hover */
+.delete:hover{
+    background-color: #fff;
+    color: #ff0000;
+}
+/* one album container end here */
+/* list of all albums container end here */
+/* main container end here */

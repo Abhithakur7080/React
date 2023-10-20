@@ -1,0 +1,83 @@
+/* main container start here */
+.container{
+    width: 100%;
+    padding: 5px 0px;
+    background-color: #40407a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+/* left container start here */
+.left{
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* name */
+.left h1{
+    margin-left: 8%;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    word-spacing: 1px;
+    text-shadow: 2px 0px 0px #2c2c54, -1px 0px 0px #2c2c54, 0px 1px 0px #2c2c54, 0px -1px 0px #2c2c54;
+}
+/* image */
+.left img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+/* left container end here */
+/* middle container start here */
+.middle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* title */
+.middle h1{
+    font-size: 35px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    word-spacing: 1px;
+    text-shadow: 2px 0px 0px #2c2c54, -1px 0px 0px #2c2c54, 0px 1px 0px #2c2c54, 0px -1px 0px #2c2c54;
+}
+/* middle container end here */
+/* right container start here */
+.right{
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+/* button */
+.right button{
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #2c2c54;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.8s ease-in-out;
+}
+/* button on hover */
+.right button:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+/* button on active */
+.right button:active{
+    transform: scale(0.9);
+}
+/* right container end here */
+/* main container end here */
