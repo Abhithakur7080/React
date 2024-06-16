@@ -1,0 +1,12 @@
+nav{
+  background-color: aliceblue;
+  padding: 16px 32px;
+}
+nav a{
+  margin-right: 16px;
+}
+/* nav a.active{
+  text-decoration: none;
+  font-weight: bold;
+  color: red;
+} */
