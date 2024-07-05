@@ -35,55 +35,88 @@ import MUIProgress from "./components/MUIProgress";
 import MUISkeleton from "./components/MUISkeleton";
 import MUILoadingButton from "./components/MUILoadingButton";
 import MUIDateTimePicker from "./components/MUIDateTimePicker";
+import MUIDateRangePicker from "./components/MUIDateRangePicker";
+import MUITabs from "./components/MUITabs";
+import MUITimeline from "./components/MUITimeline";
+import MUIMasonry from "./components/MUIMasonry";
+import MUIResponsiveness from "./components/MUIResponsiveness";
+import { ThemeProvider, colors, createTheme } from "@mui/material";
+
+//visit: https://github.com/mui/material-ui/tree/next/docs/src
+
+// customize theme
+//ref: https://mui.com/material-ui/customization/how-to-customize/
+//ref: https://mui.com/material-ui/customization/default-theme/
+//ref: https://mui.com/material-ui/customization/color/
+const theme = createTheme({
+  status: {
+    danger: "#e53e3e",
+  },
+  palette: {
+    secondary: {
+      main: colors.orange[500],
+    },
+    neutral: {
+      main: colors.grey[500],
+    },
+  },
+});
 
 const App = () => {
   return (
-    <div className="App">
-      {/* <MUITypography /> */}
-      {/* <MUIButton /> */}
-      {/* <MUITextfield /> */}
-      {/* <MUISelect /> */}
-      {/* <MUIRadioButton /> */}
-      {/* <MUICheckbox /> */}
-      {/* <MUISwitch /> */}
-      {/* <MUIRating /> */}
-      {/* <MUIAutocomplete /> */}
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        {/* <MUITypography /> */}
+        {/* <MUIButton /> */}
+        {/* <MUITextfield /> */}
+        {/* <MUISelect /> */}
+        {/* <MUIRadioButton /> */}
+        {/* <MUICheckbox /> */}
+        {/* <MUISwitch /> */}
+        {/* <MUIRating /> */}
+        {/* <MUIAutocomplete /> */}
 
-      {/* layouts --- components */}
-      {/* <MUIBox /> */}
-      {/* <MUIStack /> */}
-      {/* <MUIGrid /> */}
-      {/* <MUIPaper /> */}
+        {/* layouts --- components */}
+        {/* <MUIBox /> */}
+        {/* <MUIStack /> */}
+        {/* <MUIGrid /> */}
+        {/* <MUIPaper /> */}
 
-      {/* <MUICard /> */}
-      {/* <MUIAccordion /> */}
-      {/* <MUIImageList /> */}
+        {/* <MUICard /> */}
+        {/* <MUIAccordion /> */}
+        {/* <MUIImageList /> */}
 
-      {/* navigation related */}
-      {/* <MUINavbar /> */}
-      {/* <MUILink /> */}
-      {/* <MUIBreadCrumbs /> */}
-      {/* <MUIDrawer /> */}
-      {/* <MUISpeedDial /> */}
-      {/* <MUIBottomNavigation /> */}
+        {/* navigation related */}
+        {/* <MUINavbar /> */}
+        {/* <MUILink /> */}
+        {/* <MUIBreadCrumbs /> */}
+        {/* <MUIDrawer /> */}
+        {/* <MUISpeedDial /> */}
+        {/* <MUIBottomNavigation /> */}
 
-      {/* data display components */}
-      {/* <MUIAvatar/> */}
-      {/* <MUIBadge /> */}
-      {/* <MUIList/> */}
-      {/* <MUIChip /> */}
-      {/* <MUITable /> */}
+        {/* data display components */}
+        {/* <MUIAvatar/> */}
+        {/* <MUIBadge /> */}
+        {/* <MUIList/> */}
+        {/* <MUIChip /> */}
+        {/* <MUITable /> */}
 
-      {/* assets */}
-      {/* <MUITooltip /> */}
-      {/* <MUIAlert /> */}
-      {/* <MUISnackbar /> */}
-      {/* <MUIDialog /> */}
-      {/* <MUIProgress /> */}
-      {/* <MUISkeleton /> */}
-      {/* <MUILoadingButton /> */}
-      <MUIDateTimePicker />
-    </div>
+        {/* assets */}
+        {/* <MUITooltip /> */}
+        {/* <MUIAlert /> */}
+        {/* <MUISnackbar /> */}
+        {/* <MUIDialog /> */}
+        {/* <MUIProgress /> */}
+        {/* <MUISkeleton /> */}
+        {/* <MUILoadingButton /> */}
+        {/* <MUIDateTimePicker /> */}
+        {/* <MUIDateRangePicker /> */}
+        {/* <MUITabs /> */}
+        {/* <MUITimeline /> */}
+        {/* <MUIMasonry /> */}
+        <MUIResponsiveness />
+      </div>
+    </ThemeProvider>
   );
 };
 
